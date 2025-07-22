@@ -11,11 +11,18 @@ func main() {
 
 	fmt.Println("Hello, World!")
 	fmt.Println(quote.Go())
-	pastaRecipie := PrintRecipe("pasta")
+	pastaRecipie, _ := PrintRecipe("pasta")
 	fmt.Println(pastaRecipie)
 
-	saladRecipe := PrintRecipe("salad")
+	saladRecipe, _ := PrintRecipe("salad")
 	fmt.Println(saladRecipe)
+
+	soupRecipe, error := PrintRecipe("")
+	if error != nil {
+		fmt.Println("Error:", error)
+	} else {
+		fmt.Println(soupRecipe)
+	}
 
 	soupPrice := prices.GetPrice("soup")
 	fmt.Println(soupPrice)
